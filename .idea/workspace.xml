@@ -22,7 +22,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4de1a6b8-0780-4aea-b539-8184f30ffc07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rust-toolchain" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,9 +180,10 @@
     <state x="2655" y="166" width="2360" height="1159" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/2560.0.2560.1440/0.655.2560.1440@2560.0.2560.1440" timestamp="1604971117357" />
     <state x="2665" y="171" width="2360" height="1159" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/2560.0.2560.1440/0.704.2560.1440@2560.0.2560.1440" timestamp="1604957097441" />
     <state x="2643" y="132" width="2360" height="1159" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/2560.0.2560.1440/0.764.2560.1440@2560.0.2560.1440" timestamp="1604887505663" />
-    <state x="3584" y="504" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604879350312">
+    <state x="3584" y="504" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604990600734">
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
+    <state x="3584" y="504" key="#com.intellij.fileTypes.FileTypeChooser/2560.0.2560.1440/0.655.2560.1440@2560.0.2560.1440" timestamp="1604990600734" />
     <state x="3584" y="504" key="#com.intellij.fileTypes.FileTypeChooser/2560.0.2560.1440/0.764.2560.1440@2560.0.2560.1440" timestamp="1604879350312" />
     <state x="3653" y="421" key="#com.intellij.ide.util.MemberChooser" timestamp="1604971213793">
       <screen x="2560" y="0" width="2560" height="1440" />
