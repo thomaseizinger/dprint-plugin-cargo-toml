@@ -1,0 +1,23 @@
+name: "CI"
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          override: true
+          target: wasm32-unknown-unknown
+
+      - name: Run tests
+        run: cargo test
+
+      - name: Build wasm binary
+        run: cargo build --target=wasm32-unknown-unknown --release

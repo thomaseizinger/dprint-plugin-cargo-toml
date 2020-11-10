@@ -22,13 +22,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4de1a6b8-0780-4aea-b539-8184f30ffc07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/format_text.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/testcase_cnd/Cargo.expected.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/testcase_cnd/Cargo.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/testcase_comit/Cargo.expected.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/testcase_comit/Cargo.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +56,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/testcase_comit" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.github/workflows" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -70,6 +65,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.github/workflows" />
       <recent name="$PROJECT_DIR$/tests/testcase_comit" />
       <recent name="$PROJECT_DIR$/tests/testcase_cnd" />
       <recent name="$PROJECT_DIR$/tests/testcase_1" />
