@@ -22,7 +22,6 @@ jobs:
           target: wasm32-unknown-unknown
 
       - name: Build plugin release binary
-        id: build
         run: cargo build --target=wasm32-unknown-unknown --release
 
       - name: Upload plugin binary
