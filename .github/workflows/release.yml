@@ -1,0 +1,34 @@
+name: "Release"
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout tagged commit
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.release.target_commitish }}
+
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          override: true
+          target: wasm32-unknown-unknown
+
+      - name: Build plugin release binary
+        id: build
+        run: cargo build --target=wasm32-unknown-unknown --release
+
+      - name: Upload plugin binary
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./target/wasm32-unknown-unknown/debug/dprint_cargo_toml.wasm
+          asset_name: cargo-toml-${{ github.event.release.tag_name }}.wasm
+          asset_content_type: application/wasm
