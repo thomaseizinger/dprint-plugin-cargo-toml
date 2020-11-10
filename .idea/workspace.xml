@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="CargoProjects">
+    <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4de1a6b8-0780-4aea-b539-8184f30ffc07" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/format_text.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/testcase_cnd/Cargo.expected.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/testcase_cnd/Cargo.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/testcase_comit/Cargo.expected.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/testcase_comit/Cargo.toml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Rust File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="pan22zsb" />
+  </component>
+  <component name="ProjectId" id="1k1ruGBf99oyZs12l1iGECERXaq" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/testcase_comit" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/testcase_comit" />
+      <recent name="$PROJECT_DIR$/tests/testcase_cnd" />
+      <recent name="$PROJECT_DIR$/tests/testcase_1" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Cargo.Test formats_comit_cargo_toml_correctly">
+    <configuration name="Test formats_cnd_cargo_toml_correctly" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="test --package dprint-cargo-toml --test format_text formats_cnd_cargo_toml_correctly -- --exact" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test formats_comit_cargo_toml_correctly" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="test --package dprint-cargo-toml --test format_text formats_comit_cargo_toml_correctly -- --exact" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test formats_serde_cargo_toml_correctly" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="test --package dprint-cargo-toml --test format_text formats_serde_cargo_toml_correctly -- --exact" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="build" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="build --target wasm32-unknown-unknown" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Cargo.build" />
+      <item itemvalue="Cargo.Test formats_serde_cargo_toml_correctly" />
+      <item itemvalue="Cargo.Test formats_cnd_cargo_toml_correctly" />
+      <item itemvalue="Cargo.Test formats_comit_cargo_toml_correctly" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cargo.Test formats_comit_cargo_toml_correctly" />
+        <item itemvalue="Cargo.Test formats_serde_cargo_toml_correctly" />
+        <item itemvalue="Cargo.Test formats_cnd_cargo_toml_correctly" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="RustProjectSettings">
+    <option name="toolchainHomeDirectory" value="/usr/bin" />
+    <option name="version" value="2" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4de1a6b8-0780-4aea-b539-8184f30ffc07" name="Default Changelist" comment="" />
+      <created>1604879160158</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604879160158</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="3216" y="422" width="1071" height="707" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604881738491">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state x="3216" y="422" width="1071" height="707" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.0.2560.1440/0.764.2560.1440@2560.0.2560.1440" timestamp="1604881738491" />
+    <state x="2655" y="166" width="2360" height="1159" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1604971117357">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2655" y="166" width="2360" height="1159" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/2560.0.2560.1440/0.655.2560.1440@2560.0.2560.1440" timestamp="1604971117357" />
+    <state x="2665" y="171" width="2360" height="1159" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/2560.0.2560.1440/0.704.2560.1440@2560.0.2560.1440" timestamp="1604957097441" />
+    <state x="2643" y="132" width="2360" height="1159" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/2560.0.2560.1440/0.764.2560.1440@2560.0.2560.1440" timestamp="1604887505663" />
+    <state x="3584" y="504" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604879350312">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state x="3584" y="504" key="#com.intellij.fileTypes.FileTypeChooser/2560.0.2560.1440/0.764.2560.1440@2560.0.2560.1440" timestamp="1604879350312" />
+    <state x="3653" y="421" key="#com.intellij.ide.util.MemberChooser" timestamp="1604971213793">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state x="3653" y="421" key="#com.intellij.ide.util.MemberChooser/2560.0.2560.1440/0.655.2560.1440@2560.0.2560.1440" timestamp="1604971213793" />
+    <state x="3603" y="447" key="#xdebugger.evaluate" timestamp="1604882770543">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state x="3603" y="447" key="#xdebugger.evaluate/2560.0.2560.1440/0.764.2560.1440@2560.0.2560.1440" timestamp="1604882770543" />
+    <state x="3628" y="460" key="FileChooserDialogImpl" timestamp="1604897395370">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state x="3628" y="460" key="FileChooserDialogImpl/2560.0.2560.1440/0.704.2560.1440@2560.0.2560.1440" timestamp="1604897395370" />
+    <state width="2514" height="479" key="GridCell.Tab.0.bottom" timestamp="1604971264709">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2514" height="479" key="GridCell.Tab.0.bottom/2560.0.2560.1440/0.655.2560.1440@2560.0.2560.1440" timestamp="1604971264709" />
+    <state width="2514" height="466" key="GridCell.Tab.0.bottom/2560.0.2560.1440/0.704.2560.1440@2560.0.2560.1440" timestamp="1604957119126" />
+    <state width="2514" height="431" key="GridCell.Tab.0.bottom/2560.0.2560.1440/0.764.2560.1440@2560.0.2560.1440" timestamp="1604886962659" />
+    <state width="2514" height="479" key="GridCell.Tab.0.center" timestamp="1604971264708">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2514" height="479" key="GridCell.Tab.0.center/2560.0.2560.1440/0.655.2560.1440@2560.0.2560.1440" timestamp="1604971264708" />
+    <state width="2514" height="466" key="GridCell.Tab.0.center/2560.0.2560.1440/0.704.2560.1440@2560.0.2560.1440" timestamp="1604957119125" />
+    <state width="2514" height="431" key="GridCell.Tab.0.center/2560.0.2560.1440/0.764.2560.1440@2560.0.2560.1440" timestamp="1604886962658" />
+    <state width="2514" height="479" key="GridCell.Tab.0.left" timestamp="1604971264708">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2514" height="479" key="GridCell.Tab.0.left/2560.0.2560.1440/0.655.2560.1440@2560.0.2560.1440" timestamp="1604971264708" />
+    <state width="2514" height="466" key="GridCell.Tab.0.left/2560.0.2560.1440/0.704.2560.1440@2560.0.2560.1440" timestamp="1604957119125" />
+    <state width="2514" height="431" key="GridCell.Tab.0.left/2560.0.2560.1440/0.764.2560.1440@2560.0.2560.1440" timestamp="1604886962658" />
+    <state width="2514" height="479" key="GridCell.Tab.0.right" timestamp="1604971264709">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2514" height="479" key="GridCell.Tab.0.right/2560.0.2560.1440/0.655.2560.1440@2560.0.2560.1440" timestamp="1604971264709" />
+    <state width="2514" height="466" key="GridCell.Tab.0.right/2560.0.2560.1440/0.704.2560.1440@2560.0.2560.1440" timestamp="1604957119125" />
+    <state width="2514" height="431" key="GridCell.Tab.0.right/2560.0.2560.1440/0.764.2560.1440@2560.0.2560.1440" timestamp="1604886962659" />
+    <state width="2514" height="370" key="GridCell.Tab.1.bottom" timestamp="1604967668700">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2514" height="370" key="GridCell.Tab.1.bottom/2560.0.2560.1440/0.655.2560.1440@2560.0.2560.1440" timestamp="1604967668700" />
+    <state width="2514" height="561" key="GridCell.Tab.1.bottom/2560.0.2560.1440/0.764.2560.1440@2560.0.2560.1440" timestamp="1604883558040" />
+    <state width="2514" height="370" key="GridCell.Tab.1.center" timestamp="1604967668700">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2514" height="370" key="GridCell.Tab.1.center/2560.0.2560.1440/0.655.2560.1440@2560.0.2560.1440" timestamp="1604967668700" />
+    <state width="2514" height="561" key="GridCell.Tab.1.center/2560.0.2560.1440/0.764.2560.1440@2560.0.2560.1440" timestamp="1604883558040" />
+    <state width="2514" height="370" key="GridCell.Tab.1.left" timestamp="1604967668700">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2514" height="370" key="GridCell.Tab.1.left/2560.0.2560.1440/0.655.2560.1440@2560.0.2560.1440" timestamp="1604967668700" />
+    <state width="2514" height="561" key="GridCell.Tab.1.left/2560.0.2560.1440/0.764.2560.1440@2560.0.2560.1440" timestamp="1604883558040" />
+    <state width="2514" height="370" key="GridCell.Tab.1.right" timestamp="1604967668700">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2514" height="370" key="GridCell.Tab.1.right/2560.0.2560.1440/0.655.2560.1440@2560.0.2560.1440" timestamp="1604967668700" />
+    <state width="2514" height="561" key="GridCell.Tab.1.right/2560.0.2560.1440/0.764.2560.1440@2560.0.2560.1440" timestamp="1604883558040" />
+    <state x="2660" y="100" width="2360" height="1204" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604960990047">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2660" y="100" width="2360" height="1204" key="com.intellij.history.integration.ui.views.FileHistoryDialog/2560.0.2560.1440/0.655.2560.1440@2560.0.2560.1440" timestamp="1604960990047" />
+    <state x="3543" y="441" width="613" height="522" key="find.popup" timestamp="1604962436042">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state x="3543" y="441" width="613" height="522" key="find.popup/2560.0.2560.1440/0.655.2560.1440@2560.0.2560.1440" timestamp="1604962436042" />
+    <state x="3543" y="441" width="613" height="522" key="find.popup/2560.0.2560.1440/0.764.2560.1440@2560.0.2560.1440" timestamp="1604881527310" />
+    <state x="3503" y="320" width="672" height="678" key="search.everywhere.popup" timestamp="1604970459627">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state x="3503" y="320" width="672" height="678" key="search.everywhere.popup/2560.0.2560.1440/0.655.2560.1440@2560.0.2560.1440" timestamp="1604970459627" />
+    <state x="3503" y="320" width="672" height="678" key="search.everywhere.popup/2560.0.2560.1440/0.764.2560.1440@2560.0.2560.1440" timestamp="1604885519178" />
+  </component>
+</project>

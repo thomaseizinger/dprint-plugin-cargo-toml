@@ -1,0 +1,69 @@
+[package]
+authors = ["CoBloX <hello@coblox.tech>"]
+name = "cnd"
+description = "Reference implementation of a COMIT network daemon."
+version = "0.9.0"
+edition = "2018"
+
+[dependencies]
+anyhow = "1"
+async-trait = "0.1"
+atty = "0.2"
+backoff = { version = "0.2.1", features = ["tokio"] }
+base64 = "0.13.0"
+derivative = "2"
+bitcoin = { version = "0.25", features = ["use-serde"] }
+comit = { path = "../comit" }
+config = { version = "0.10", features = ["toml"], default-features = false }
+conquer-once = "0.2.1"
+data-encoding = "2.3"
+diesel = { version = "1.4", features = ["sqlite"] }
+diesel_migrations = "1.4.0"
+libp2p = { version = "0.29", default-features = false, features = ["tcp-tokio", "yamux", "mplex", "dns", "noise"] }
+directories-next = "2"
+fs2 = "0.4.3"
+futures = { version = "0.3", default-features = false }
+futures-timer = "3.0"
+get_if_addrs = "0.5"
+hex = "0.4"
+http-api-problem = { version = "0.15", features = ["with_warp"] }
+ipnet = "2.3"
+libp2p-tokio-socks5 = "0.4"
+libsqlite3-sys = { version = ">=0.8.0, <0.13.0", features = ["bundled"] }
+log = { version = "0.4", features = ["serde"] }
+num = "0.3"
+pem = "0.8"
+rand = "0.7"
+reqwest = { version = "0.10", default-features = false, features = ["json", "native-tls-vendored"] }
+serde = { version = "1", features = ["derive"] }
+serde_derive = "1.0"
+tracing = { version = "0.1", features = ["attributes"] }
+serde_json = "1"
+serdebug = "1"
+siren = { version = "0.2.1", package = "siren-types" }
+socket2 = "0.3"
+url = { version = "2", features = ["serde"] }
+structopt = "0.3"
+strum = "0.19"
+strum_macros = "0.19"
+thiserror = "1"
+time = "0.2.22"
+tracing-futures = { version = "0.2", features = ["std-future", "futures-03"] }
+tokio = { version = "0.2", features = ["rt-threaded", "time", "macros", "sync"] }
+toml = "0.5"
+tracing-core = "0.1"
+tracing-log = "0.1"
+tracing-subscriber = { version = "0.2", default-features = false, features = ["fmt", "ansi", "env-filter"] }
+uuid = { version = "0.8", features = ["serde", "v4"] }
+void = "1"
+warp = { version = "0.2", default-features = false }
+
+[dev-dependencies]
+bitcoincore-rpc = "0.12.0"
+spectral = { version = "0.6", default-features = false }
+comit = { path = "../comit", features = ["test"] }
+regex = "1.4"
+proptest = "0.10.1"
+serde_urlencoded = "0.7"
+bitcoin = { version = "0.25", features = ["rand"] }
+tempfile = "3.1.0"
