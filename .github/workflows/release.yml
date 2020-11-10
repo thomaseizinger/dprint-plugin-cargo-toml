@@ -28,6 +28,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./target/wasm32-unknown-unknown/debug/dprint_cargo_toml.wasm
+          asset_path: ./target/wasm32-unknown-unknown/release/dprint_cargo_toml.wasm
           asset_name: cargo-toml-${{ github.event.release.tag_name }}.wasm
           asset_content_type: application/wasm
