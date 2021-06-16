@@ -1,119 +1,125 @@
 use dprint_core::configuration::{
-    get_unknown_property_diagnostics, ConfigKeyValue, GlobalConfiguration,
-    ResolveConfigurationResult,
+    get_unknown_property_diagnostics, ConfigKeyMap, GlobalConfiguration, ResolveConfigurationResult,
 };
+use dprint_core::plugins::PluginInfo;
+use dprint_core::types::ErrBox;
 use itertools::Itertools;
 use rowan::{GreenNode, GreenNodeBuilder, GreenToken, NodeOrToken, SmolStr, SyntaxElement};
 use serde::{Deserialize, Serialize};
 use std::cmp::Ordering;
-use std::collections::HashMap;
 use std::path::Path;
-use std::path::PathBuf;
 use toml_parse::{parse_it, Formatter, SyntaxNode, SyntaxNodeExtTrait, TomlKind};
+
+#[cfg(all(target_arch = "wasm32", target_os = "unknown"))]
+use dprint_core::plugins::PluginHandler as _;
+
+#[cfg(all(target_arch = "wasm32", target_os = "unknown"))]
+dprint_core::generate_plugin_code!(PluginHandler, PluginHandler);
+
+pub struct PluginHandler;
+
+impl dprint_core::plugins::PluginHandler<Configuration> for PluginHandler {
+    fn resolve_config(
+        &mut self,
+        config: ConfigKeyMap,
+        _: &GlobalConfiguration,
+    ) -> ResolveConfigurationResult<Configuration> {
+        let mut diagnostics = Vec::new();
+
+        diagnostics.extend(get_unknown_property_diagnostics(config));
+
+        ResolveConfigurationResult {
+            config: Configuration {},
+            diagnostics,
+        }
+    }
+
+    fn get_plugin_info(&mut self) -> PluginInfo {
+        PluginInfo {
+            name: "cargo-toml-fmt".to_string(),
+            version: env!("CARGO_PKG_VERSION").to_owned(),
+            config_key: "cargo_toml".to_string(),
+            file_extensions: vec![],
+            file_names: vec!["Cargo.toml".to_owned()],
+            help_url: "".to_string(),
+            config_schema_url: "".to_string(),
+        }
+    }
+
+    fn get_license_text(&mut self) -> String {
+        std::str::from_utf8(include_bytes!("../LICENSE"))
+            .unwrap()
+            .into()
+    }
+
+    fn format_text(
+        &mut self,
+        file_path: &Path,
+        file_text: &str,
+        _: &Configuration,
+        _: impl FnMut(&Path, String, &ConfigKeyMap) -> Result<String, ErrBox>,
+    ) -> Result<String, ErrBox> {
+        match file_path.file_name() {
+            Some(file_name) if file_name == "Cargo.toml" => {}
+            _ => return Ok(file_text.to_string()),
+        }
+
+        let toml = parse_it(file_text).map_err(|e| e.to_string())?.syntax();
+
+        let mut builder = GreenNodeBuilder::new();
+        builder.start_node(TomlKind::Root.into());
+
+        for node in toml.children() {
+            match table_heading(&node) {
+                Some(heading) if heading.contains("[package]") => {
+                    sort_table_entries(&node, &mut builder, |left, right| {
+                        match (
+                            key_name(left.as_ref()).as_deref(),
+                            key_name(right.as_ref()).as_deref(),
+                        ) {
+                            (Some("name"), Some(_)) => Ordering::Less,
+                            (Some(_), Some("name")) => Ordering::Greater,
+                            (Some("version"), Some(_)) => Ordering::Less,
+                            (Some(_), Some("version")) => Ordering::Greater,
+                            (Some("description"), Some("")) => Ordering::Less,
+                            (Some(""), Some("description")) => Ordering::Greater,
+                            (Some("description"), Some(_)) => Ordering::Greater,
+                            (Some(_), Some("description")) => Ordering::Less,
+                            (Some(left), Some(right)) => left.cmp(right),
+                            _ => Ordering::Equal,
+                        }
+                    })
+                }
+                Some(heading)
+                    if heading.contains("[dependencies]")
+                        || heading.contains("[dev-dependencies]") =>
+                {
+                    sort_table_entries(&node, &mut builder, |left, right| {
+                        match (
+                            key_name(left.as_ref()).as_deref(),
+                            key_name(right.as_ref()).as_deref(),
+                        ) {
+                            (Some(left), Some(right)) => left.cmp(right),
+                            _ => Ordering::Equal,
+                        }
+                    });
+                }
+                _ => {
+                    add_node(&node, &mut builder);
+                }
+            }
+        }
+
+        builder.finish_node();
+        let formatted_toml = SyntaxNode::new_root(builder.finish());
+
+        Ok(Formatter::new(&formatted_toml).format().to_string())
+    }
+}
 
 #[derive(Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Configuration {}
-
-fn resolve_config(
-    config: HashMap<String, ConfigKeyValue>,
-    _: &GlobalConfiguration,
-) -> ResolveConfigurationResult<Configuration> {
-    let mut diagnostics = Vec::new();
-
-    diagnostics.extend(get_unknown_property_diagnostics(config));
-
-    ResolveConfigurationResult {
-        config: Configuration {},
-        diagnostics,
-    }
-}
-
-fn get_plugin_config_key() -> String {
-    "cargo_toml".to_string()
-}
-
-fn get_plugin_file_extensions() -> Vec<String> {
-    vec!["toml".to_string()]
-}
-
-fn get_plugin_help_url() -> String {
-    "https://example.org".to_string()
-}
-
-fn get_plugin_config_schema_url() -> String {
-    // for now, return an empty string. Return a schema url once VSCode
-    // supports $schema properties in descendant objects:
-    // https://github.com/microsoft/vscode/issues/98443
-    String::new()
-}
-
-fn get_plugin_license_text() -> String {
-    std::str::from_utf8(include_bytes!("../LICENSE"))
-        .unwrap()
-        .into()
-}
-
-/// Format a Cargo.toml file according to the guidelines: https://github.com/rust-dev-tools/fmt-rfcs/blob/master/guide/cargo.md
-pub fn format_text(file_path: &Path, file_text: &str, _: &Configuration) -> Result<String, String> {
-    match file_path.file_name() {
-        Some(file_name) if file_name == "Cargo.toml" => {}
-        _ => return Ok(file_text.to_string()),
-    }
-
-    let toml = parse_it(file_text).map_err(|e| e.to_string())?.syntax();
-
-    let mut builder = GreenNodeBuilder::new();
-    builder.start_node(TomlKind::Root.into());
-
-    for node in toml.children() {
-        match table_heading(&node) {
-            Some(heading) if heading.contains("[package]") => {
-                sort_table_entries(&node, &mut builder, |left, right| {
-                    match (
-                        key_name(left.as_ref()).as_deref(),
-                        key_name(right.as_ref()).as_deref(),
-                    ) {
-                        (Some("name"), Some(_)) => Ordering::Less,
-                        (Some(_), Some("name")) => Ordering::Greater,
-                        (Some("version"), Some(_)) => Ordering::Less,
-                        (Some(_), Some("version")) => Ordering::Greater,
-                        (Some("description"), Some("")) => Ordering::Less,
-                        (Some(""), Some("description")) => Ordering::Greater,
-                        (Some("description"), Some(_)) => Ordering::Greater,
-                        (Some(_), Some("description")) => Ordering::Less,
-                        (Some(left), Some(right)) => left.cmp(right),
-                        _ => Ordering::Equal,
-                    }
-                })
-            }
-            Some(heading)
-                if heading.contains("[dependencies]") || heading.contains("[dev-dependencies]") =>
-            {
-                sort_table_entries(&node, &mut builder, |left, right| {
-                    match (
-                        key_name(left.as_ref()).as_deref(),
-                        key_name(right.as_ref()).as_deref(),
-                    ) {
-                        (Some(left), Some(right)) => left.cmp(right),
-                        _ => Ordering::Equal,
-                    }
-                });
-            }
-            _ => {
-                add_node(&node, &mut builder);
-            }
-        }
-    }
-
-    builder.finish_node();
-    let formatted_toml = SyntaxNode::new_root(builder.finish());
-
-    Ok(Formatter::new(&formatted_toml).format().to_string())
-}
-
-#[cfg(all(target_arch = "wasm32", target_os = "unknown"))]
-dprint_core::generate_plugin_code!();
 
 enum TableEntry {
     Regular(SyntaxNode),
