@@ -1,18 +1,18 @@
 [package]
 name = "dprint-cargo-toml"
-version = "0.1.0"
-authors = ["Thomas Eizinger <thomas@eizinger.io>"]
+version = "0.2.0"
+authors = [ "Thomas Eizinger <thomas@eizinger.io>" ]
 edition = "2018"
-
+publish = false
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [lib]
-crate-type = ["lib", "cdylib"]
+crate-type = [ "lib", "cdylib" ]
 
 [dependencies]
-dprint-core = { version = "0.31", features = ["wasm"] }
-serde = { version = "1.0.88", features = ["derive"] }
+dprint-core = { version = "0.43", features = [ "wasm" ] }
+itertools = "0.10"
+rowan = "0.10"
+serde = { version = "1", features = [ "derive" ] }
 serde_json = "1.0"
-toml-parse = "0.2.11"
-rowan = "0.10.0"
-itertools = "0.9.0"
+toml-parse = "0.2"
