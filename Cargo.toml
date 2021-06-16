@@ -1,6 +1,6 @@
 [package]
 name = "dprint-cargo-toml"
-version = "0.1.0"
+version = "0.2.0"
 authors = [ "Thomas Eizinger <thomas@eizinger.io>" ]
 edition = "2018"
 publish = false
