@@ -16,6 +16,8 @@ jobs:
           override: true
           target: wasm32-unknown-unknown
 
+      - uses: dprint/check@v1.5
+
       - name: Run tests
         run: cargo test
 
